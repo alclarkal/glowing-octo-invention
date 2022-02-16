@@ -9,8 +9,8 @@ jobs:
       xcode: 13.2.1
     steps:
       - run:
-          name: Check shell
-          command: echo $SHELL
+          name: Check current dir
+          command: pwd
       # - run:
       #     name: Check make using zsh
       #     command: |
