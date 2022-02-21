@@ -7,10 +7,10 @@ jobs:
   build:
     docker:
       - image: cimg/base:latest
-    steps:
-      - run:
-          name: Check current dir
-          command: pwd
+#     steps:
+#       - run:
+#           name: Check current dir
+#           command: pwd
       - run: sudo apt update && sudo apt full-upgrade -y
       # - run:
       #     name: Check make using zsh
