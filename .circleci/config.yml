@@ -1,17 +1,17 @@
 version: 2.1
 
-orbs:
-  mac: circleci/macos@2.0.1
+# orbs:
+#   mac: circleci/macos@2.0.1
 
 jobs:
   build:
-    macos:
-      xcode: 13.2.1
-    resource_class: free
+    docker:
+      - image: cimg/base:latest
     steps:
       - run:
           name: Check current dir
           command: pwd
+      - run: sudo apt update && sudo apt full-upgrade -y
       # - run:
       #     name: Check make using zsh
       #     command: |
@@ -20,13 +20,13 @@ jobs:
       #     name: Check make using sh
       #     command: |
       #       sh -c '/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -sdk '' -find make 2> /dev/null'
-      - run:
-          name: Check make using bash
-          command: |
-            bash -c '/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -sdk '' -find make 2> /dev/null' || :
-      - run:
-          name: Check using bash default
-          command: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -sdk '' -find make 2> /dev/null
+      # - run:
+      #     name: Check make using bash
+      #     command: |
+      #       bash -c '/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -sdk '' -find make 2> /dev/null' || :
+      # - run:
+      #     name: Check using bash default
+      #     command: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -sdk '' -find make 2> /dev/null
 workflow:
   build:
     jobs:
