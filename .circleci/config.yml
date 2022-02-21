@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       - image: cimg/base:latest
-#     steps:
+    steps:
 #       - run:
 #           name: Check current dir
 #           command: pwd
